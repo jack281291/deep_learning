@@ -2,6 +2,14 @@ import numpy as np
 from torch.utils.data import Dataset, DataLoader
 from torch import from_numpy, tensor
 
+"""
+Dataset class
+torch.utils.data.Dataset is an abstract class representing a dataset. Your custom dataset should inherit Dataset and override the following methods:
+
+    __len__ so that len(dataset) returns the size of the dataset.
+    __getitem__ to support the indexing such that dataset[i] can be used to get ith sample
+"""
+
 class DiabetesDataset(Dataset):
     def __init__(self):
         xy = np.loadtxt("data/diabetes.csv.gz", delimiter=",", dtype=np.float32)
